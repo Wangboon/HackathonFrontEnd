@@ -1,0 +1,46 @@
+.footer_section {
+    width: 100%;
+    float: left;
+    background-color: #A7C7E7;
+    padding: 10px 0;
+}
+
+.footer_section_2 {
+    width: 100%;
+    float: left;
+    padding-top: 40px;
+}
+
+.useful_text {
+    width: 100%;
+    font-size: 24px;
+    color: #393838;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer_menu {
+    width: 100%;
+    float: left;
+}
+
+.footer_menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer_menu li {
+    font-size: 16px;
+    color: #393838;
+    margin-bottom: 10px; /* Space between links */
+}
+
+.footer_menu li a {
+    color: #393838; /* Set link color to match text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer_menu li a:hover {
+    color: #222; /* Darken color on hover for slight contrast */
+}

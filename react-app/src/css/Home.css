@@ -1,0 +1,198 @@
+.banner_section {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    
+}
+
+.banner_taital {
+    font-size: 3.5rem;
+    color: #FFFDF9;
+    font-weight: bold;
+}
+
+.banner_text {
+    font-size: 1.2rem;
+    color: #FFFDF9;
+    margin-top: 10px;
+}
+
+
+.read_bt {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.read_bt a {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #393838;
+    background-color: #98DDCA;
+    padding: 12px 0px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.read_bt a:hover {
+    color: #393838;
+    background-color: #FFFDF9;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #FFFDF9;
+    color: #393838;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+}
+
+.service_section {
+    background-color: #FFFDF9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.service_taital {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #393838;
+    position: relative;
+}
+
+.service_taital::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #A7C7E7;
+    margin: 10px auto 0;
+    border-radius: 20px;
+}
+
+.service_section_2 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service_box {
+    background-color: #A7C7E7;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 250px; /* Set a minimum width for responsiveness */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px; /* Set a fixed height for equal sizing */
+}
+
+.service_box:hover {
+    background-color: #98DDCA;
+    transform: translateY(-10px);
+}
+
+.building_icon img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.residential_text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #393838;
+}
+
+.service_text {
+    font-size: 1rem;
+    color: #393838;
+    margin: 20px 0;
+}
+
+.readmore_bt {
+    margin-top: 15px;
+    /* Add spacing between the button and the service box */
+    text-align: center;
+}
+
+.readmore_bt a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #393838;
+    background-color: #98DDCA;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.readmore_bt a:hover {
+    color: #FFFDF9;
+    background-color: #393838;
+}
+
+.about_section {
+    background-color: #FFFDF9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about_taital {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #393838;
+    position: relative;
+}
+
+.about_taital::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #A7C7E7;
+    margin: 10px auto 0;
+    border-radius: 20px;
+}
+
+.about_section_2 {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.about_taital_main {
+    text-align: left;
+}
+
+.slightly_text {
+    font-size: 4rem;
+    color: #393838;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+.lorem_text {
+    font-size: 1.1rem;
+    color: #393838;
+    margin-top: 20px;
+}
+
+.about_img img {
+    max-width: 100%;
+    border-radius: 10px;
+}
