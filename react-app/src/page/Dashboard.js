@@ -10,32 +10,32 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="header-container">
-        <h2
+        <h3
           onClick={() => setActiveSection('charts')} 
           className={activeSection === 'charts' ? 'active' : ''}
           style={{ margin: '0px 20px 0px 0px' }}
         >
           Charts
-        </h2>
-        <h2 
+        </h3>
+        <h3
           onClick={() => setActiveSection('calendar')} 
           className={activeSection === 'calendar' ? 'active' : ''}
           style={{marginLeft: '10px'}}
         >
           Calendar
-        </h2>
+        </h3>
       </div>
 
       {activeSection === 'charts' && (
         <div className="dashboard-section">
-          <h3>Pie Charts</h3>
+          
           <ChartsComponent />
         </div>
       )}
 
       {activeSection === 'calendar' && (
         <div className="dashboard-section">
-          <h3>Calendar</h3>
+          
           <CalendarComponent />
         </div>
       )}

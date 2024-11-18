@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Pie, Line } from 'react-chartjs-2';
-import { Chart, ArcElement, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
+import { Chart, ArcElement, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, Filler } from 'chart.js';
 import axios from 'axios';
 
-Chart.register(ArcElement, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
+Chart.register(ArcElement, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, Filler);
 
 const ChartsComponent = () => {
   const [dashboardData, setDashboardData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/dashboard')
+    axios
+      .get('http://localhost:8080/dashboard')
       .then((response) => {
         setDashboardData(response.data);
       })
@@ -22,18 +23,18 @@ const ChartsComponent = () => {
     labels: Object.keys(dataMap),
     datasets: [
       {
-        data: Object.values(dataMap).map(value => Math.floor(value)), // Ensure integers
+        data: Object.values(dataMap),
         backgroundColor: [
-          'rgba(75, 192, 192, 0.6)', // Green
-          'rgba(54, 162, 235, 0.6)', // Blue
           'rgba(255, 99, 132, 0.6)', // Red
-          'rgba(255, 206, 86, 0.6)', // Yellow
+          'rgba(54, 162, 235, 0.6)', // Blue
+          'rgba(75, 192, 192, 0.6)', // Green
+          'rgba(255, 159, 64, 0.6)', // Yellow
         ],
         borderColor: [
-          'rgba(75, 192, 192, 1)',
-          'rgba(54, 162, 235, 1)',
           'rgba(255, 99, 132, 1)',
-          'rgba(255, 206, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
         ],
         borderWidth: 1,
       },
@@ -41,52 +42,85 @@ const ChartsComponent = () => {
   });
 
   const generateLineChartData = () => {
-    const timeLabels = Object.keys(dashboardData.timeBasedMoodZoneCounts || {});
-
-    const datasets = Object.entries(dashboardData.moodZoneCounts || {}).map(([zone, moodMap]) => {
-      const data = timeLabels.map(time => dashboardData.timeBasedMoodZoneCounts[time]?.[zone] || 0);
-
+    const timeBasedMoodZoneCounts = dashboardData?.timeBasedMoodZoneCounts || {};
+  
+    // Extract unique zones from `timeBasedMoodZoneCounts`
+    const zones = Array.from(
+      new Set(
+        Object.values(timeBasedMoodZoneCounts)
+          .flatMap((zoneData) => Object.keys(zoneData))
+      )
+    );
+  
+    const timeLabels = Object.keys(timeBasedMoodZoneCounts).sort();
+  
+    const datasets = zones.map((zone) => {
+      const data = timeLabels.map((date) => {
+        const zoneCount = timeBasedMoodZoneCounts[date]?.[zone] || 0;
+        return zoneCount;
+      });
+  
       return {
-        label: zone.charAt(0).toUpperCase() + zone.slice(1) + " Zone", // Capitalize zone name
-        data,
-        fill: true,
+        label: `${zone} Zone`,
+        data: data,
         borderColor: {
-          'green': 'rgba(75, 192, 192, 1)',
-          'blue': 'rgba(54, 162, 235, 1)',
-          'red': 'rgba(255, 99, 132, 1)',
-          'yellow': 'rgba(255, 206, 86, 1)',
+          Red: 'rgba(255, 99, 132, 1)',
+          Blue: 'rgba(54, 162, 235, 1)',
+          Green: 'rgba(75, 192, 192, 1)',
+          Yellow: 'rgba(255,159,64,1)',
         }[zone],
         backgroundColor: {
-          'green': 'rgba(75, 192, 192, 0.2)',
-          'blue': 'rgba(54, 162, 235, 0.2)',
-          'red': 'rgba(255, 99, 132, 0.2)',
-          'yellow': 'rgba(255, 206, 86, 0.2)',
+          Red: 'rgba(255, 99, 132, 0)',
+          Blue: 'rgba(54, 162, 235, 0)',
+          Green: 'rgba(75, 192, 192, 0)',
+          Yellow: 'rgba(255,159,64,0)',
         }[zone],
+        fill: true,
+        tension: 0.4,
       };
     });
-
+  
     return {
       labels: timeLabels,
       datasets,
     };
   };
+  
 
   const lineChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Summary of All Zones (Daily)',
+      },
+    },
     scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Date',
+        },
+      },
       y: {
+        title: {
+          display: true,
+          text: 'Count',
+        },
         beginAtZero: true,
         ticks: {
-          stepSize: 1, // Ensure the y-axis uses integer values
-          callback: function(value) { return Number(value).toFixed(0); } // Display integers only
-        }
+          stepSize: 1,
+          callback: function (value) {
+            return Math.floor(value);
+          },
+        },
       },
-      x: {
-        ticks: {
-          autoSkip: true,
-          maxTicksLimit: 10
-        }
-      }
-    }
+    },
   };
 
   if (!dashboardData) {
@@ -95,19 +129,34 @@ const ChartsComponent = () => {
 
   return (
     <div className="charts-container">
-      {Object.entries(dashboardData.moodZoneCounts).map(([zone, moods], index) => (
-        <div className="chart-card" key={index}>
-          <h3>{zone.charAt(0).toUpperCase() + zone.slice(1)} Zone</h3>
-          <Pie data={generatePieChartData(zone, moods)} />
+      <div>
+        <h3>{new Date().toISOString().slice(0, 7)} Data</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+          {Object.entries(dashboardData.moodZoneCounts || {}).map(([zone, moodData], i) => (
+            <div
+              key={`${zone}-${i}`}
+              style={{
+                flex: '1 1 calc(25% - 20px)',
+                minWidth: '200px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                borderRadius: '8px',
+                padding: '16px',
+                backgroundColor: '#fff',
+                textAlign: 'center',
+              }}
+            >
+              <h4>{zone} Zone</h4>
+              <Pie data={generatePieChartData(zone, moodData)} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
 
-      <div className="chart-card-summary">
-        <h3>Summary of All Zones</h3>
-        <Line data={generateLineChartData()} options={lineChartOptions} />
-        <p className="chart-summary">
-          This line chart represents the combined data trends over time across all zones, showing the mood progression for Green, Blue, Red, and Yellow zones.
-        </p>
+      <div className="chart-card-summary" style={{ marginTop: '40px' }}>
+        <h3>Summary of All Zones (Daily)</h3>
+        <div style={{ width: '80%', height: '400px', margin: 'auto' }}>
+          <Line data={generateLineChartData()} options={lineChartOptions} />
+        </div>
       </div>
     </div>
   );

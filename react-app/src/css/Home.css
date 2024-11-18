@@ -196,3 +196,147 @@
     max-width: 100%;
     border-radius: 10px;
 }
+
+
+/* AI Section Start */
+.testimonial_section {
+    width: 100%;
+    padding: 80px 20px;
+    background:#FFFDF9; /* Gradient background */
+    text-align: center;
+    color: #393838; /* Light text for contrast */
+}
+
+.testimonial_taital {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.testimonial_taital::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #393838;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.testimonial_text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial_section_2 {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsive design */
+    justify-content: center; /* Center align testimonials */
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.testimonial_left {
+    flex: 1;
+    max-width: 300px; /* Adjust image container size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client_img img {
+    width: 100%;
+    max-width: 300px; /* Rectangle width */
+    height: 200px; /* Rectangle height */
+    object-fit: contain; /* Ensure the entire image is visible */
+    border-radius: 10px; /* Slightly rounded corners */
+   
+}
+
+.client_img img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.testimonial_right {
+    flex: 2;
+    text-align: left; /* Align text to the left */
+    padding: 10px 20px;
+    color: #393838;
+}
+
+.markro_text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.many_text {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+#my_slider .carousel-control-prev,
+#my_slider .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 50%; /* Circular buttons */
+    color: #393838; /* Dark arrow color */
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease; /* Smooth hover effect */
+    position: absolute;
+    top: 50%; /* Vertically center */
+    transform: translateY(-50%); /* Adjust for centering */
+    z-index: 100; /* Ensure it's above images */
+}
+
+#my_slider .carousel-control-prev {
+    left: -60px; /* Move the left arrow outside the image */
+}
+
+#my_slider .carousel-control-next {
+    right: -60px; /* Move the right arrow outside the image */
+}
+
+#my_slider .carousel-control-prev:hover,
+#my_slider .carousel-control-next:hover {
+    background: #393838; /* Dark background on hover */
+    color: #FFFDF9; /* Light arrow color on hover */
+    transform: scale(1.1) translateY(-50%); /* Slight zoom effect */
+}
+
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.6); /* Light indicators */
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.carousel-indicators [data-bs-target].active {
+    background-color: #FFFDF9; /* Bright active indicator */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial_section_2 {
+        flex-direction: column;
+    }
+
+    .client_img img {
+        width: 100%;
+        max-width: 250px; /* Adjust size for smaller screens */
+        height: 150px; /* Keep rectangle */
+    }
+}

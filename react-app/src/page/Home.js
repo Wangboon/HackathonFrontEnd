@@ -7,6 +7,10 @@ import GoalIcon from '../images/goal.png';
 import DiaryIcon from '../images/diary.png';
 import DashboardIcon from '../images/dashboard.png';
 import AboutImage from '../images/DiaryBlue.jpg';
+import GreenZone from'../images/GreenZone.png';
+import BlueZone from'../images/BlueZone.png';
+import YellowZone from'../images/YellowZone.png';
+import RedZone from'../images/RedZone.png';
 
 const Home = () => {
     return (
@@ -63,7 +67,7 @@ const Home = () => {
                                 <p className="service_text">วันนี้มาทำชาแลนจ์ง่ายๆกันนะ</p>
 
                             </div>
-                            <div className="readmore_bt"><a href="#">CHALLENGE</a></div>
+                            <div className="readmore_bt"><Link to="/challenge">CHALLENGE</Link></div>
                         </div>
                         <div className="col-lg-4 col-sm-4">
                             <div className="service_box">
@@ -108,7 +112,118 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {/* AI Section */}
+            <div className="testimonial_section layout_padding">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <h1 className="testimonial_taital">AI</h1>
+                            <p className="testimonial_text">
+                                เราใช้ AI เพื่อช่วยผู้ใช้ระบุอารมณ์ของตนเองได้ง่ายขึ้น
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Carousel for Testimonials */}
+                    <div id="my_slider" className="carousel slide" data-ride="carousel">
+                        <div className="carousel-inner">
+                            {/* Testimonial 1 */}
+                            <div className="carousel-item active">
+                                <div className="testimonial_section_2">
+                                    <div className="testimonial_left">
+                                        <div className="client_img">
+                                            <img src={GreenZone} alt="Client" />
+                                        </div>
+                                    </div>
+                                    <div className="testimonial_right">
+                                        <h4 className="markro_text">Green Zone</h4>
+                                        <p className="many_text">
+                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Testimonial 2 */}
+                            <div className="carousel-item">
+                                <div className="testimonial_section_2">
+                                    <div className="testimonial_left">
+                                        <div className="client_img">
+                                            <img src={BlueZone} alt="Client" />
+                                        </div>
+                                    </div>
+                                    <div className="testimonial_right">
+                                        <h4 className="markro_text">Blue Zone</h4>
+                                        <p className="many_text">
+                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Testimonial 3 */}
+                            <div className="carousel-item">
+                                <div className="testimonial_section_2">
+                                    <div className="testimonial_left">
+                                        <div className="client_img">
+                                            <img src={YellowZone} alt="Client" />
+                                        </div>
+                                    </div>
+                                    <div className="testimonial_right">
+                                        <h4 className="markro_text">Yellow Zone</h4>
+                                        <p className="many_text">
+                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            {/* Testimonial 4 */}
+                            <div className="carousel-item">
+                                <div className="testimonial_section_2">
+                                    <div className="testimonial_left">
+                                        <div className="client_img">
+                                            <img src={RedZone} alt="Client" />
+                                        </div>
+                                    </div>
+                                    <div className="testimonial_right">
+                                        <h4 className="markro_text">Red Zone</h4>
+                                        <p className="many_text">
+                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Carousel Controls */}
+                        <a className="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                            <i className="fa fa-angle-left"></i>
+                        </a>
+                        <a className="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                            <i className="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
+
+
+
+
+
+
+
     );
 };
 
