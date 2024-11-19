@@ -1,0 +1,145 @@
+.finish-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #FFFDF9;
+    font-family: 'Arial', sans-serif;
+}
+
+.finish-title {
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.finish-challenge-box {
+    background-color: #A7C7E7;
+    padding: 100px;
+    width: 1000px;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    text-align: flex-start;
+    position: relative;
+}
+
+.challenge-description {
+    font-size: 30px;
+    color: #FFFDF9;
+}
+
+.completed-text {
+    font-size: 30px; 
+    font-weight: bold;
+    color: #FFFDF9;
+    margin-top: 10px;
+    margin-right: 150px;
+    text-align: right;
+}
+
+.challenge-inline {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 200px;
+    margin-top: 20px;
+}
+
+.checkmark-icon {
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    color: #A7C7E7;
+    border-radius: 15px;
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #FFFDF9;
+}
+
+.history-button {
+    position: absolute;
+    bottom: 20px; 
+    right: 20px;
+    background-color: #98DDCA;
+    color: #FFFDF9;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.history-button:hover {
+    background-color: #7bb8a4;
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (Desktop) 
+@media (min-width: 1024px) {
+    .finish-container {
+        height: 100vh;
+    }
+
+    .finish-title {
+        font-size: 80px;
+    }
+
+    .finish-challenge-box {
+        width: 800px;
+        height: 250px;
+        padding: 50px;
+    }
+
+    .challenge-description {
+        font-size: 24px;
+    }
+}
+
+/* สำหรับแท็บเล็ต (Tablet)
+@media (min-width: 768px) and (max-width: 1023px) {
+    .finish-container {
+        padding: 20px;
+    }
+
+    .finish-title {
+        font-size: 60px;
+    }
+
+    .finish-challenge-box {
+        width: 90%;
+        padding: 40px;
+    }
+
+    .challenge-description {
+        font-size: 20px;
+    }
+}
+
+/* สำหรับมือถือ (Mobile)
+@media (max-width: 767px) {
+    .finish-container {
+        height: auto;
+        padding: 10px;
+    }
+
+    .finish-title {
+        font-size: 36px;
+    }
+
+    .finish-challenge-box {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+    }
+
+    .challenge-description {
+        font-size: 16px;
+        text-align: center;
+    }
+} */

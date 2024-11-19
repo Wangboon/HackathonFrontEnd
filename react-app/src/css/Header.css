@@ -24,7 +24,7 @@
 
 .header_section {
     width: 100%;
-    float: left;
+    /* float: left; */
     background-color: #A7C7E7;
     height: auto;
     background-size: 100%;

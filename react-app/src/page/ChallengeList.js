@@ -150,7 +150,7 @@ const ChallengeList = () => {
         return (
             <div className="popup-overlay">
                 <div className="popup-content">
-                    <h2>Encouragement for You!</h2>
+                    <h2 className='popup-h2'>Encouragement for You!</h2>
                     {encourage ? (
                         <>
                             <p>{encourage.description}</p>
