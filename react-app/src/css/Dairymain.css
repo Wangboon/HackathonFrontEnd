@@ -6,41 +6,25 @@
     font-family: Arial, sans-serif;
 }
 
-/* Make the app a flex container to push the footer to the bottom */
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-
-
-.login-btn {
-    background-color: #b5e7b5;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 /* Main Content */
 .main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* Align items to the left */
-    padding: 50px;
+    align-items: center;  /* Center align content */
+    justify-content: flex-start;
+    padding: 50px 20px;
     background-color: #f9f9f9;
+    color: #333;
 }
 
 .tiles-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 items per row */
+    grid-template-columns: repeat(6, 1fr); /* Automatically adjusts columns, 6 items per row */
     gap: 20px;
     width: 100%;
-    justify-items: center; /* Center-align items in their grid cells */
+    justify-items: center;
+    padding: 0 20px;
 }
 
 .diary-wrapper {
@@ -48,26 +32,51 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    transition: transform 0.2s ease-in-out;
+}
+
+.diary-wrapper:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
 }
 
 .diary {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
     background-color: #a8e8d0;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: background-color 0.3s ease;
+}
+
+.diary:hover {
+    background-color: #a0c9c4; /* Darker shade on hover */
+}
+
+/* Resize the image to make it slightly bigger */
+.diary img {
+    width: 100%; /* Make the image take full width */
+    height: 150px; /* Increase height to make it bigger */
+    border-radius: 10px;
+    object-fit: cover; /* Ensure the image scales proportionally without stretching */
+    margin-bottom: 15px;
 }
 
 .addDiary {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
     background-color: #e6f7f2;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .addDiary.plus span {
@@ -75,12 +84,22 @@
     color: #333;
 }
 
+.addDiary:hover {
+    background-color: #b3e6e0; /* Hover effect */
+}
+
+/* Title and time styles */
 .title {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     color: #333;
+    transition: color 0.2s ease;
+}
+
+.title:hover {
+    color: #5a9a8f; /* Color change on hover */
 }
 
 .time {
@@ -89,3 +108,41 @@
     color: #666;
     text-align: center;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tiles-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller columns on mobile */
+    }
+
+    .diary, .addDiary {
+        width: 180px;
+        height: 230px;
+    }
+
+    /* Reduce the size of the image slightly on mobile */
+    .diary img {
+        height: 120px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .time {
+        font-size: 12px;
+    }
+}
+
+
+/* Add styles for the "no diaries" message */
+.no-diaries-message {
+    font-size: 27px;  /* Make the font size larger */
+    font-weight: bold;
+    color: #393838;  /* Green color for the text */
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    width: 80%;
+}
+
