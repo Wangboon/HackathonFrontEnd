@@ -35,7 +35,7 @@ const ChartsComponent = () => {
     if (!dashboardData?.timeBasedMoodZoneCounts) return {};
   
     const timeBasedMoodZoneCounts = dashboardData.timeBasedMoodZoneCounts;
-    const months = ['มค.', 'กพ.', 'มีน.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   
     const redData = [];
     const blueData = [];

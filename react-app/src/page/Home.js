@@ -78,7 +78,7 @@ const Home = () => {
                                 </p>
 
                             </div>
-                            <div className="readmore_bt"><a href="#">DIARY MOOD</a></div>
+                            <div className="readmore_bt"><Link to="/diaryMain">DIARY MOOD</Link></div>
                         </div>
                         <div className="col-lg-4 col-sm-4">
                             <div className="service_box">

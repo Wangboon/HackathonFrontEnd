@@ -69,7 +69,7 @@ const Header = () => {
                   onClick={() => handleScrollLink('about')}
                   style={{ cursor: 'pointer' }}
                 >
-                  About Us
+                  About
                 </span>
               </li>
               <li className="nav-item">
@@ -87,7 +87,7 @@ const Header = () => {
                   onClick={() => handleScrollLink('footer')}
                   style={{ cursor: 'pointer' }}
                 >
-                  Contact Us
+                  Contact
                 </span>
               </li>
               {!userEmail ? (

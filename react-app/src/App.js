@@ -11,6 +11,7 @@ import FinishChallenge from './page/FinishChallenge';
 import Login from './page/login';
 import Register from'./page/Register';
 import Membership from './page/Membership';
+import DiaryMain from './page/Dairymain';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/diaryMain" element={<DiaryMain />} />
         </Routes>
         <Footer />
       </div>

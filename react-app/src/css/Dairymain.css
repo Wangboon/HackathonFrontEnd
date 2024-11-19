@@ -1,0 +1,75 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Make the app a flex container to push the footer to the bottom */
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  
+  
+  .login-btn {
+    background-color: #b5e7b5;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 50px;
+    background-color: #f9f9f9;
+  }
+  
+  .tiles-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start; /* Ensure tiles stay on the left */
+  }
+  
+  
+  .tile {
+    width: 150px;
+    height: 200px;
+    background-color: #a8e8d0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tile.plus {
+    background-color: #e6f7f2;
+  }
+  
+  .tile.plus span {
+    font-size: 48px;
+    color: #333;
+  }
+  
+  .line {
+    width: 100px;
+    height: 4px;
+    background-color: #333;
+  }
+  
+  .title {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  
