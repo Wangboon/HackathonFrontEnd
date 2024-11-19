@@ -98,7 +98,9 @@ const Home = () => {
                                     <Link to="/challengeNomember">CHALLENGE</Link>
                                 </div>
                             ) : (
-                                <p>Loading...</p> // กรณีที่ยังโหลด membership ไม่เสร็จ
+                                <div className="readmore_bt">
+                                    <Link to="/challengeNomember">CHALLENGE</Link>
+                                </div>
                             )}
                         </div>
                         <div className="col-lg-4 col-sm-4">
