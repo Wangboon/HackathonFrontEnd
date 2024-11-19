@@ -5,6 +5,7 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import Home from './page/Home';
 import ChallengeList from './page/ChallengeList';
+import ChallengeNomember from './page/ChallegneNomember';
 import ChallengeHistory from './page/ChallengeHistory';
 import EncourageList from './page/EncourageList';
 import FinishChallenge from './page/FinishChallenge';
@@ -21,9 +22,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} /> {/* Dashboard route */}
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/challenge" element={<ChallengeList />} />
-          <Route path="/history" element={<ChallengeHistory />} /> {/* Add ChallengeHistory route */}
+          <Route path="/challengeNomember" element={<ChallengeNomember />} />
+          <Route path="/history" element={<ChallengeHistory />} />
           <Route path="/encourage" element={<EncourageList />} />
           <Route path="/finish" element={<FinishChallenge />} />
           <Route path="/login" element={<Login />} />

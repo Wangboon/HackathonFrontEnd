@@ -6,15 +6,35 @@ import GoalIcon from '../images/goal.png';
 import DiaryIcon from '../images/diary.png';
 import DashboardIcon from '../images/dashboard.png';
 import AboutImage from '../images/DiaryBlue.jpg';
-import GreenZone from'../images/GreenZone.png';
-import BlueZone from'../images/BlueZone.png';
-import YellowZone from'../images/YellowZone.png';
-import RedZone from'../images/RedZone.png';
-import { useNavigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import GreenZone from '../images/GreenZone.png';
+import BlueZone from '../images/BlueZone.png';
+import YellowZone from '../images/YellowZone.png';
+import RedZone from '../images/RedZone.png';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Home = () => {
+    const [membership, setMembership] = useState(null); // State สำหรับเก็บค่า membership
+    const [userEmail, setUserEmail] = useState("");
+
+    useEffect(() => {
+        // ดึง email จาก LocalStorage
+        const email = localStorage.getItem("userEmail");
+        if (email) {
+            setUserEmail(email);
+            fetchMembership(email);
+        }
+    }, []);
+
+    const fetchMembership = async (email) => {
+        try {
+            const response = await axios.get(`http://localhost:8080/api/user/membership?email=${email}`);
+            setMembership(response.data); // บันทึกค่า membership
+        } catch (error) {
+            console.error("Error fetching membership:", error);
+        }
+    };
+
     return (
         <div>
             {/* Banner Section */}
@@ -67,9 +87,19 @@ const Home = () => {
                                 <div className="building_icon"><img src={GoalIcon} alt="Goal Icon" /></div>
                                 <h4 className="residential_text">Challenge</h4>
                                 <p className="service_text">วันนี้มาทำชาแลนจ์ง่ายๆกันนะ</p>
-
                             </div>
-                            <div className="readmore_bt"><Link to="/challenge">CHALLENGE</Link></div>
+                            {/* ตรวจสอบ membership */}
+                            {membership === 1 ? (
+                                <div className="readmore_bt">
+                                    <Link to="/challenge">CHALLENGE</Link>
+                                </div>
+                            ) : membership === 0 ? (
+                                <div className="readmore_bt">
+                                    <Link to="/challengeNomember">CHALLENGE</Link>
+                                </div>
+                            ) : (
+                                <p>Loading...</p> // กรณีที่ยังโหลด membership ไม่เสร็จ
+                            )}
                         </div>
                         <div className="col-lg-4 col-sm-4">
                             <div className="service_box">
@@ -143,7 +173,7 @@ const Home = () => {
                                         <p className="many_text">
                                             Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
                                         </p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +191,7 @@ const Home = () => {
                                         <p className="many_text">
                                             Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
                                         </p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +209,7 @@ const Home = () => {
                                         <p className="many_text">
                                             Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
                                         </p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +229,7 @@ const Home = () => {
                                         <p className="many_text">
                                             Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
                                         </p>
-                                        
+
                                     </div>
                                 </div>
                             </div>

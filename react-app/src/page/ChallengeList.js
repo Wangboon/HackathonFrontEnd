@@ -78,7 +78,6 @@ const ChallengeList = () => {
         }
     };
 
-
     const getRandomChallenges = () => {
         if (refreshCount >= 3) {
             alert("You can refresh only 3 times!");
@@ -197,13 +196,6 @@ const ChallengeList = () => {
 
     return (
         <>
-            {/* <button
-                type="button"
-                className="challenge-button"
-                onClick={() => navigate('/membership')}
-            >
-                Membership
-            </button> */}
             <h1 className="daily-challenge-title">Daily Challenge</h1>
             <div className="challenge-container">
                 <button className="refresh-button" onClick={getRandomChallenges}>
