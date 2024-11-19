@@ -8,6 +8,28 @@ import mountainIcon from '../images/mountain.png';
 
 
 const ChallengeList = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkChallengeStatus = async () => {
+            const email = localStorage.getItem("userEmail");
+            if (!email) {
+                console.error("User email not found!");
+                return;
+            }
+
+            try {
+                const response = await axios.get(`http://localhost:8080/api/history/status/${email}`);
+                if (response.data) {
+                    navigate('/finish');
+                }
+            } catch (error) {
+                console.error("Error checking challenge status:", error);
+            }
+        };
+
+        checkChallengeStatus();
+    }, [navigate]);
     const [userEmail, setUserEmail] = useState("");
 
     useEffect(() => {
@@ -29,7 +51,6 @@ const ChallengeList = () => {
     const [imagePreview, setImagePreview] = useState(null);
     const [description, setDescription] = useState('');
 
-    const navigate = useNavigate();
     const [refreshCount, setRefreshCount] = useState(0);
 
     useEffect(() => {
@@ -56,6 +77,7 @@ const ChallengeList = () => {
             console.error('Error fetching challenges:', error);
         }
     };
+
 
     const getRandomChallenges = () => {
         if (refreshCount >= 3) {

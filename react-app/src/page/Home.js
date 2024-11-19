@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import '../css/Home.css'; // Import your CSS file
@@ -11,6 +10,9 @@ import GreenZone from'../images/GreenZone.png';
 import BlueZone from'../images/BlueZone.png';
 import YellowZone from'../images/YellowZone.png';
 import RedZone from'../images/RedZone.png';
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 const Home = () => {
     return (
@@ -213,17 +215,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
-
-
-
-
-
-
     );
 };
 
