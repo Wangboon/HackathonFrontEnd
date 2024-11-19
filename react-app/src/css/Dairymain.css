@@ -4,44 +4,53 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-  }
-  
-  /* Make the app a flex container to push the footer to the bottom */
-  .app {
+}
+
+/* Make the app a flex container to push the footer to the bottom */
+.app {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-  
-  
-  
-  .login-btn {
+}
+
+
+
+.login-btn {
     background-color: #b5e7b5;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  /* Main Content */
-  .main-content {
+}
+
+/* Main Content */
+.main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
+    /* Align items to the left */
     padding: 50px;
     background-color: #f9f9f9;
-  }
-  
-  .tiles-container {
-    display: flex;
+}
+
+.tiles-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 items per row */
     gap: 20px;
-    justify-content: flex-start; /* Ensure tiles stay on the left */
-  }
-  
-  
-  .tile {
+    width: 100%;
+    justify-items: center; /* Center-align items in their grid cells */
+}
+
+.diary-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.diary {
     width: 150px;
     height: 200px;
     background-color: #a8e8d0;
@@ -49,27 +58,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .tile.plus {
+}
+
+.addDiary {
+    width: 150px;
+    height: 200px;
     background-color: #e6f7f2;
-  }
-  
-  .tile.plus span {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addDiary.plus span {
     font-size: 48px;
     color: #333;
-  }
-  
-  .line {
-    width: 100px;
-    height: 4px;
-    background-color: #333;
-  }
-  
-  .title {
-    margin-top: 20px;
-    font-size: 24px;
+}
+
+.title {
+    margin-top: 10px;
+    font-size: 18px;
     font-weight: bold;
-  }
-  
-  
+    text-align: center;
+    color: #333;
+}
+
+.time {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
