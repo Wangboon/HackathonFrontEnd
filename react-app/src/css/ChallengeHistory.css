@@ -133,3 +133,63 @@
     padding: 10px;
     display: inline-block;
 }
+
+/* สำหรับหน้าจอขนาดใหญ่ (Desktop)
+@media (min-width: 1024px) {
+    .history-card {
+        max-width: 1000px;
+        min-height: 400px;
+        padding: 40px;
+    }
+
+    .history-title {
+        font-size: 80px;
+    }
+
+    .history-img {
+        max-width: 600px;
+        max-height: 400px;
+    }
+}
+
+/* สำหรับแท็บเล็ต (Tablet)
+@media (min-width: 768px) and (max-width: 1023px) {
+    .history-card {
+        max-width: 90%;
+        padding: 30px;
+    }
+
+    .history-title {
+        font-size: 50px;
+    }
+
+    .history-img {
+        max-width: 400px;
+        max-height: 300px;
+    }
+}
+
+/* สำหรับมือถือ (Mobile)
+@media (max-width: 767px) {
+    .history-container {
+        padding: 10px;
+    }
+
+    .history-title {
+        font-size: 36px;
+    }
+
+    .history-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .history-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .history-description {
+        font-size: 16px;
+    }
+} */

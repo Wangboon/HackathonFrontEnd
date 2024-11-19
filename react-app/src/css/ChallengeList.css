@@ -6,6 +6,7 @@
     text-align: left;
     width: 80%;
     max-width: 1000px;
+    max-height: 550px;
     margin: 20px auto;
     position: relative;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -42,7 +43,7 @@
 
 
 /* สไตล์ของหัวข้อ */
-h1 {
+.daily-challenge-title {
     font-size: 35px;
     font-weight: bold;
     color: #000000;
@@ -50,7 +51,7 @@ h1 {
     margin-top: 20px;
 }
 
-h2 {
+.challenge-h2 {
     font-size: 40px;
     font-weight: normal;
     color: #FFFDF9;
@@ -80,7 +81,7 @@ h2 {
     cursor: pointer;
     margin-bottom: 0px;
 }
-.submit-form {
+.challenge-submit {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -88,7 +89,7 @@ h2 {
 }
 
 /* ฟอร์มอัปโหลดรูป */
-.upload-form {
+.challenge-upload {
     display: flex;
     align-items: center;
     margin-right: 270px;
@@ -96,7 +97,7 @@ h2 {
     margin-top: -60px;
 }
 
-.upload-label {
+.challenge-upload-label {
     font-size: 30px;
     font-weight: bold;
     color: #000;
@@ -136,8 +137,7 @@ h2 {
     display: inline-block;
 }
 
-/* ปุ่ม Challenge History และ Complete */
-.button {
+.challenge-button {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #98DDCA;
@@ -150,7 +150,7 @@ h2 {
     margin: 10px;
 }
 
-.button:hover {
+.challenge-button:hover {
     background-color: #7bb8a4;
 }
 
@@ -264,3 +264,63 @@ img[src="/image/moutain.png"] {
 .popup-close-button:hover {
     background-color: #7bb8a4;
 }
+
+/* สำหรับหน้าจอขนาดใหญ่ (Desktop)
+@media (min-width: 1024px) {
+    .challenge-container {
+        width: 90%;
+        max-width: 1200px;
+        padding: 40px;
+    }
+
+    .daily-challenge-title {
+        font-size: 80px;
+    }
+
+    .challenge-text {
+        font-size: 24px;
+    }
+}
+
+สำหรับแท็บเล็ต (Tablet)
+@media (min-width: 768px) and (max-width: 1023px) {
+    .challenge-container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .daily-challenge-title {
+        font-size: 60px;
+    }
+
+    .challenge-text {
+        font-size: 20px;
+    }
+}
+
+สำหรับมือถือ (Mobile)
+@media (max-width: 767px) {
+    .challenge-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .daily-challenge-title {
+        font-size: 36px;
+    }
+
+    .challenge-h2 {
+        font-size: 18px;
+    }
+
+    .challenge-text {
+        font-size: 16px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .challenge-image img {
+        max-width: 100%;
+        height: auto;
+    }
+} */

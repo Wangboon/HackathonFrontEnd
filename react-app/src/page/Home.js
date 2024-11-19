@@ -26,7 +26,7 @@ const Home = () => {
                                         <div className="col-md-12">
                                             <h1 className="banner_taital">Upgrade to Membership</h1>
                                             <p className="banner_text">For more diary tools.</p>
-                                            <div className="read_bt"><a href="#">Membership</a></div>
+                                            <div className="read_bt"><Link to="/membership">membership</Link></div>
                                         </div>
                                     </div>
                                 </div>

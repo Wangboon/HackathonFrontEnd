@@ -1,0 +1,64 @@
+.membership-container {
+    text-align: center;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.membership-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #FFFDF9;
+}
+
+.membership-card {
+    background-color: #A7C7E7;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.membership-price {
+    font-size: 48px;
+    color: #FFFDF9;
+    margin-bottom: 20px;
+}
+
+.membership-price span {
+    font-size: 24px;
+    color: #FFFDF9;
+}
+
+.membership-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: 16px;
+    color: #FFFDF9;
+}
+
+.membership-features li {
+    margin-bottom: 10px;
+}
+
+.membership-button {
+    background-color: #98ddca;
+    color: #FFFDF9;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.membership-button:hover {
+    background-color: #78c1b4;
+}
+
+.membership-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import Link, useLocation, and useNavigate from react-router-dom
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink, scroller } from 'react-scroll'; // Import ScrollLink and scroller from react-scroll
 import '../css/Header.css';
 
@@ -11,7 +11,6 @@ const Header = () => {
     if (location.pathname !== '/') {
       navigate('/'); // Navigate to home page if not on home
       setTimeout(() => {
-        // Wait until navigation completes and then scroll
         scroller.scrollTo(target, {
           smooth: true,
           duration: 1000,
@@ -27,6 +26,13 @@ const Header = () => {
       });
     }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userEmail'); // Remove user email from localStorage
+    navigate('/login'); // Redirect to login page after logout
+  };
+
+  const userEmail = localStorage.getItem('userEmail'); // Get the user's email from localStorage
 
   return (
     <div className="header_section">
@@ -84,9 +90,26 @@ const Header = () => {
                   Contact Us
                 </span>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Login</a>
-              </li>
+              {!userEmail ? (
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">Login</Link>
+                </li>
+              ) : (
+                <>
+                  <li className="nav-item" style={{ marginRight: '20px' }}>
+                    <span className="nav-link">{userEmail}</span> {/* Display the username */}
+                  </li>
+                  <li className="nav-item" style={{ marginRight: '20px' }}>
+                    <span
+                      className="nav-link"
+                      onClick={handleLogout}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Logout
+                    </span>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </nav>

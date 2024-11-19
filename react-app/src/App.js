@@ -8,7 +8,9 @@ import ChallengeList from './page/ChallengeList';
 import ChallengeHistory from './page/ChallengeHistory';
 import EncourageList from './page/EncourageList';
 import FinishChallenge from './page/FinishChallenge';
-
+import Login from './page/login';
+import Register from'./page/Register';
+import Membership from './page/Membership';
 
 
 function App() {
@@ -23,6 +25,9 @@ function App() {
           <Route path="/history" element={<ChallengeHistory />} /> {/* Add ChallengeHistory route */}
           <Route path="/encourage" element={<EncourageList />} />
           <Route path="/finish" element={<FinishChallenge />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/membership" element={<Membership />} />
         </Routes>
         <Footer />
       </div>

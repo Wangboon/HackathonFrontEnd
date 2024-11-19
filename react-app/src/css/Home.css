@@ -212,6 +212,7 @@
     font-weight: bold;
     margin-bottom: 10px;
     position: relative;
+    color: #393838;
 }
 
 .testimonial_taital::after {
@@ -219,7 +220,7 @@
     display: block;
     width: 80px;
     height: 4px;
-    background-color: #393838;
+    background-color: #A7C7E7;
     margin: 10px auto;
     border-radius: 2px;
 }

@@ -26,9 +26,17 @@ const moodZoneColors = {
 
 const CalendarComponent = () => {
   const [events, setEvents] = useState([]);
-
+  
   useEffect(() => {
-    axios.get('http://localhost:8080/dashboard')
+    const userEmail = localStorage.getItem('userEmail'); // Get user email from localStorage
+
+    if (!userEmail) {
+      console.error('User is not logged in.');
+      return;
+    }
+
+    // Fetch data using the user's email
+    axios.get(`http://localhost:8080/dashboard/user/email/${userEmail}`)
       .then((response) => {
         const diaries = response.data.diaries;
 
@@ -51,7 +59,7 @@ const CalendarComponent = () => {
         setEvents(calendarEvents);
       })
       .catch(error => console.error('Error fetching calendar data:', error));
-  }, []);
+  }, []); // Empty dependency array to only run once on mount
 
   // Custom event style function
   const eventStyleGetter = (event) => {

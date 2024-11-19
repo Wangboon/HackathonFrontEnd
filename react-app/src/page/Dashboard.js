@@ -9,36 +9,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="header-container">
-        <h3
-          onClick={() => setActiveSection('charts')} 
-          className={activeSection === 'charts' ? 'active' : ''}
-          style={{ margin: '0px 20px 0px 0px' }}
-        >
-          Charts
-        </h3>
-        <h3
-          onClick={() => setActiveSection('calendar')} 
-          className={activeSection === 'calendar' ? 'active' : ''}
-          style={{marginLeft: '10px'}}
-        >
-          Calendar
-        </h3>
-      </div>
-
-      {activeSection === 'charts' && (
-        <div className="dashboard-section">
-          
-          <ChartsComponent />
-        </div>
-      )}
-
-      {activeSection === 'calendar' && (
-        <div className="dashboard-section">
-          
-          <CalendarComponent />
-        </div>
-      )}
+      <ChartsComponent/>
+      <CalendarComponent/>
     </div>
   );
 };

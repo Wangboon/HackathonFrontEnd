@@ -24,12 +24,12 @@ const FinishChallenge = () => {
     return (
         <div className="finish-container">
             <h1 className="finish-title">Daily Challenge</h1>
-            <div className="challenge-box">
+            <div className="finish-challenge-box">
                 <div className="challenge-inline">
                     <div className="checkmark-icon">✔</div>
                     <div>
                         <p className="challenge-description">
-                            {latestChallenge ? latestChallenge.description : "No challenge found."}
+                            {latestChallenge ? latestChallenge.description : "loading...."}
                         </p>
                         <p className="completed-text">Completed!</p>
                     </div>
@@ -43,6 +43,7 @@ const FinishChallenge = () => {
                 </button>
             </div>
         </div>
+
     );
 };
 
