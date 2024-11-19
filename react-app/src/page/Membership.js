@@ -1,49 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/Membership.css";
 
 const Membership = () => {
     const [message, setMessage] = useState("");
+    const [hasMembership, setHasMembership] = useState(false); // Add state for membership status
 
     const handleUpgrade = async () => {
         const userEmail = localStorage.getItem("userEmail"); // Get email from localStorage
-    
+
         if (!userEmail) {
-            setMessage("User not logged in!");
+            setMessage("กรุณาเข้าสู่ระบบก่อน!");
             return;
         }
-    
+
+        // Check if user already has a membership
+        try {
+            const response = await axios.get(`http://localhost:8080/api/user/membership?email=${userEmail}`);
+            if (response.data > 0) {
+                setHasMembership(true);
+                setMessage("คุณได้สมัครสมาชิกไปก่อนหน้านี้แล้ว");
+                return;
+            }
+        } catch (error) {
+            console.error("Error checking membership status:", error);
+            setMessage("ไม่สามารถตรวจสอบสถานะสมาชิกได้!");
+            return;
+        }
+
         try {
             const response = await axios.put(`http://localhost:8080/api/user/updateMembership?email=${userEmail}`);
             if (response.status === 200) {
-                setMessage("Membership upgraded successfully!");
+                setMessage("อัปเกรดสมาชิกเรียบร้อย!");
             }
         } catch (error) {
             console.error("Error upgrading membership:", error);
-            setMessage("Failed to upgrade membership.");
+            setMessage("ไม่สามารถอัปเกรดสมาชิกได้!");
         }
     };
-    
+
+    useEffect(() => {
+        // Check for membership when the component mounts
+        const userEmail = localStorage.getItem("userEmail");
+        if (userEmail) {
+            axios
+                .get(`http://localhost:8080/api/user/membership?email=${userEmail}`)
+                .then((response) => {
+                    if (response.data > 0) {
+                        setHasMembership(true); // User already has a membership
+                        setMessage("คุณได้สมัครสมาชิกไปก่อนหน้านี้แล้ว");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error checking membership status:", error);
+                    setMessage("ไม่สามารถตรวจสอบสถานะสมาชิกได้!");
+                });
+        }
+    }, []);
 
     return (
         <div className="membership-container">
-            <h1 className="membership-title">membership</h1>
+            <h1 className="membership-title">Membership</h1>
             <div className="membership-card">
-                <h2 className="membership-price">79<span>/month</span></h2>
+                <h2 className="membership-price">
+                    79<span>/Month</span>
+                </h2>
                 <ul className="membership-features">
-                    <li>▶ เพิ่มจำนวนไดอารี่</li>
-                    <li>▶ มีเครื่องมือการเขียนไดอารี่</li>
-                    <li>▶ ปรับขนาดตัวอักษร</li>
-                    <li>▶ ปรับฟรอนต์ตัวอักษร</li>
-                    <li>▶ ปรับตัวอักษรหนา บาง เอียง</li>
-                    <li>▶ ปรับสี</li>
-                    <li>▶ ใส่รูป</li>
-                    <li>▶ รีเฟรชชาเลนจ์ใหม่ได้ เพื่อหาอันที่ถูกใจ</li>
+                    <li>เขียนไดอารี่ได้ไม่จำกัด</li>
+                    <li>เขียนข้อความในไดอารี่ได้ไม่จำกัด</li>
+                    <li>มีแถบเครื่องมือของไดอารี่</li>
+                    <li>ปรับขนาดตัวอักษร</li>
+                    <li>เปลี่ยนฟอนต์และสีของตัวอักษร</li>
+                    <li>ปรับตัวอักษรเป็นหนา, เอียง, บาง</li>
+                    <li>สามารถรีเฟรชชาเลนจ์ได้</li>
                 </ul>
             </div>
-            <button className="membership-button" onClick={handleUpgrade}>
-                Click here
-            </button>
+            {!hasMembership ? (
+                <button className="membership-button" onClick={handleUpgrade}>
+                    Upgrade Now
+                </button>
+            ) : null}
             {message && <p className="membership-message">{message}</p>}
         </div>
     );
