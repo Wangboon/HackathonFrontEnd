@@ -35,6 +35,7 @@ const RegisterForm = () => {
                     email: formData.email,
                     password: formData.password,
                     membership: 0,
+                    canWrite: 1
                 }),
             });
 

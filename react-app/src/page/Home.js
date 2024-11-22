@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import '../css/Home.css'; // Import your CSS file
-import BannerImage from '../images/BannerHomeDiary.jpg'; // Directly import the banner image
+import BannerImage from '../images/Diary-banner-17309_131119125150.jpg'; // Directly import the banner image
 import GoalIcon from '../images/goal.png';
 import DiaryIcon from '../images/diary.png';
 import DashboardIcon from '../images/dashboard.png';
@@ -38,7 +38,7 @@ const Home = () => {
     return (
         <div>
             {/* Banner Section */}
-            <div className="banner_section" style={{ backgroundImage: `url(${BannerImage})` }}>
+            <div className="banner_section" style={{ backgroundImage: `url(${BannerImage})`,opacity: 1 }}>
                 <div className="container">
                     <div id="main_slider" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
@@ -147,12 +147,12 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* AI Section */}
-            <div className="testimonial_section layout_padding">
+           {/* AI Section */}
+           <div className="testimonial_section layout_padding">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12">
-                            <h1 className="testimonial_taital">AI</h1>
+                            <h1 className="testimonial_taital">AI Help?</h1>
                             <p className="testimonial_text">
                                 เราใช้ AI เพื่อช่วยผู้ใช้ระบุอารมณ์ของตนเองได้ง่ายขึ้น
                             </p>
@@ -173,7 +173,9 @@ const Home = () => {
                                     <div className="testimonial_right">
                                         <h4 className="markro_text">Green Zone</h4>
                                         <p className="many_text">
-                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                            แสดงถึงอารมณ์ที่สมดุล ผ่อนคลาย และสงบในจิตใจ ช่วงเวลานี้เป็นโอกาสสำหรับการพักผ่อนทั้งกายและใจ
+                                            เพื่อฟื้นฟูพลังงานและสร้างแรงบันดาลใจใหม่ การอยู่ในโซนนี้ช่วยให้เรามองเห็นความงามในสิ่งรอบตัว
+                                            และสร้างความสัมพันธ์ที่ดีกับตัวเองและผู้อื่น
                                         </p>
 
                                     </div>
@@ -191,7 +193,9 @@ const Home = () => {
                                     <div className="testimonial_right">
                                         <h4 className="markro_text">Blue Zone</h4>
                                         <p className="many_text">
-                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                            สะท้อนถึงอารมณ์ที่นิ่งลึกและต้องการการดูแล เช่น ความสงบในช่วงเวลาที่ทบทวนตัวเอง
+                                            แม้จะเป็นพื้นที่ที่อาจรู้สึกอ่อนไหวหรือเศร้า แต่โซนนี้ช่วยให้เราเชื่อมต่อกับความรู้สึกภายใน
+                                            และสร้างความเข้าใจที่ลึกซึ้งเกี่ยวกับตัวเองและสิ่งที่เรากำลังเผชิญ
                                         </p>
 
                                     </div>
@@ -209,7 +213,9 @@ const Home = () => {
                                     <div className="testimonial_right">
                                         <h4 className="markro_text">Yellow Zone</h4>
                                         <p className="many_text">
-                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                            แสดงถึงอารมณ์ที่เปี่ยมไปด้วยพลังงานและความตื่นเต้น โซนนี้เป็นพื้นที่ของการกระตือรือร้น
+                                            และการพร้อมที่จะก้าวข้ามขีดจำกัดของตัวเอง เป็นช่วงเวลาที่เราสามารถสร้างสรรค์สิ่งใหม่
+                                            และใช้พลังงานเชิงบวกเพื่อผลักดันให้บรรลุเป้าหมายที่ตั้งไว้
                                         </p>
 
                                     </div>
@@ -229,7 +235,9 @@ const Home = () => {
                                     <div className="testimonial_right">
                                         <h4 className="markro_text">Red Zone</h4>
                                         <p className="many_text">
-                                            Many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle.
+                                            เป็นอารมณ์ที่เข้มข้นและทรงพลัง ซึ่งอาจเกิดจากความรู้สึกที่ต้องการการตอบสนองอย่างเร่งด่วน
+                                            ช่วงเวลานี้เป็นโอกาสในการเรียนรู้ที่จะควบคุมและเปลี่ยนแปลงอารมณ์อย่างเหมาะสม
+                                            เพื่อสร้างสมดุลในจิตใจและความมั่นคงในชีวิต
                                         </p>
 
                                     </div>

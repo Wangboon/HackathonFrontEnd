@@ -67,8 +67,8 @@ const Footer = () => {
               <h2 className="useful_text">Contact Us</h2>
               <div className="footer_menu">
                 <ul>
-                  <li><a href="#">Hong Tae</a></li>
-                  <li><a href="#">Sunny</a></li>
+                  <li><a href="#">HongTae</a></li>
+                  <li><a href="#">narongthon_s@cmu.ac.th</a></li>
                   <li><a href="mailto:wangboon_b@cmu.ac.th">wangboon_b@cmu.ac.th</a></li>
                 </ul>
               </div>

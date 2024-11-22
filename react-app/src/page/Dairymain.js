@@ -10,6 +10,7 @@ const importAllImages = (r) => {
     return images;
 };
 
+
 // Import images from all Mood Zones
 const redImages = importAllImages(require.context("../images/Red Zone", false, /\.(png|jpe?g)$/));
 const yellowImages = importAllImages(require.context("../images/Yellow Zone", false, /\.(png|jpe?g)$/));
@@ -18,6 +19,7 @@ const greenImages = importAllImages(require.context("../images/Green Zone", fals
 
 const MainContent = () => {
     const [diaries, setDiaries] = useState([]); // State to store diaries
+    const [canWrite, setCanWrite] = useState(0);
     const navigate = useNavigate();
 
     // Get the email from localStorage
@@ -47,15 +49,37 @@ const MainContent = () => {
         }
     }, [userEmail, navigate]);
 
+    useEffect(() => {
+        // If user email exists, fetch diaries by email, else redirect to login
+        if (userEmail) {
+            axios
+                .get(`http://localhost:8080/api/user/email/${userEmail}`) // Use the email-based endpoint
+                .then((response) => {
+                    console.log(response.data[0].canWrite);
+                    if (response.data) {
+                        setCanWrite(response.data[0].canWrite);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching diary data:", error);
+                });
+        } else {
+            navigate("/login"); // If no email found, redirect to login
+        }
+    }, [userEmail, navigate]);
+
     const handleNext = () => {
         navigate("/dairy"); // Navigate to add a new diary
+    };
+    const seedairy = (id) => {
+        navigate(`/dairysee/${id}`); // Navigate to add a new diary
     };
 
     // Function to determine the image source based on the mood and its corresponding zone
     const getImageSource = (mood, moodZone) => {
         const moodFileName = `${mood}.png`;
-        
-        switch(moodZone) {
+
+        switch (moodZone) {
             case "Red":
                 return redImages[moodFileName] || "#";  // Return Red Zone image or default
             case "Yellow":
@@ -69,18 +93,27 @@ const MainContent = () => {
         }
     };
 
+    console.log(canWrite);
+    let style
+    if (canWrite === 1) {
+        style = 'pointerEvents: "none"';
+    }
+
     return (
         <main className="main-content">
             <div className="tiles-container">
                 {/* Add Diary Button */}
-                <div className="addDiary plus" onClick={handleNext}>
+                <div className="addDiary plus" onClick={handleNext} style={{
+                    pointerEvents: canWrite === 1 ? "auto" : "none",
+                    opacity: canWrite === 1 ? 1 : 0.4,
+                }}>
                     <span>+</span>
                 </div>
 
                 {/* Render Diaries Dynamically */}
                 {diaries.length > 0 ? (
                     diaries.map((diary, index) => (
-                        <div key={index} className="diary-wrapper">
+                        <div key={index} className="diary-wrapper" onClick={() => seedairy(diary.id)}>
                             <div
                                 className="diary"
                                 style={{
@@ -88,10 +121,10 @@ const MainContent = () => {
                                 }}
                             >
                                 {/* Display the image corresponding to the mood */}
-                                <img 
-                                    src={getImageSource(diary.mood, diary.moodZone)} 
-                                    alt={diary.mood} 
-                                    className="diary-image" 
+                                <img
+                                    src={getImageSource(diary.mood, diary.moodZone)}
+                                    alt={diary.mood}
+                                    className="diary-image"
                                 />
                                 <p>{diary.mood}</p> {/* Show mood inside diary */}
                             </div>
@@ -102,7 +135,7 @@ const MainContent = () => {
                         </div>
                     ))
                 ) : (
-                    <p className="no-diaries-message">เขียนไดอารี่กันเถอะ</p>  
+                    <p className="no-diaries-message">เขียนไดอารี่กันเถอะ</p>
                 )}
             </div>
         </main>

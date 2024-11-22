@@ -79,7 +79,7 @@ const ChallengeList = () => {
     };
 
     const getRandomChallenges = () => {
-        if (refreshCount >= 3) {
+        if (refreshCount >= 4) {
             alert("You can refresh only 3 times!");
             return;
         }
@@ -199,7 +199,7 @@ const ChallengeList = () => {
             <h1 className="daily-challenge-title">Daily Challenge</h1>
             <div className="challenge-container">
                 <button className="refresh-button" onClick={getRandomChallenges}>
-                    {3 - refreshCount} <img src={refreshIcon} alt="Refresh Challenge" style={{ width: '40px', height: '40px' }} />
+                    {4 - refreshCount} <img src={refreshIcon} alt="Refresh Challenge" style={{ width: '40px', height: '40px' }} />
                 </button>
                 <div className="challenge-header">
                     {randomChallenges.map((_, index) => (

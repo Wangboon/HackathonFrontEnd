@@ -27,16 +27,25 @@ const Membership = () => {
             setMessage("ไม่สามารถตรวจสอบสถานะสมาชิกได้!");
             return;
         }
-
+        try{
+            const response = await axios.patch(`http://localhost:8080/api/user/update/email/${localStorage.getItem("userEmail") || "not email"}`,{
+                canWrite: 1
+              });
+              console.log(response)
+        } catch( error ){
+            console.error(error)
+        }
         try {
             const response = await axios.put(`http://localhost:8080/api/user/updateMembership?email=${userEmail}`);
             if (response.status === 200) {
                 setMessage("อัปเกรดสมาชิกเรียบร้อย!");
             }
+            
         } catch (error) {
             console.error("Error upgrading membership:", error);
             setMessage("ไม่สามารถอัปเกรดสมาชิกได้!");
         }
+       
     };
 
     useEffect(() => {

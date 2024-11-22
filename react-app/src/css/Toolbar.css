@@ -1,0 +1,55 @@
+.toolbar {
+    display: flex;
+    flex-wrap: wrap; /* Allows the toolbar to wrap buttons on smaller screens */
+    gap: 8px; /* Space between toolbar items */
+    padding: 10px 15px;
+    background-color: #ffffff; /* Clean white background for contrast */
+    border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin-bottom: 2%;
+}
+
+.toolbar button, 
+.toolbar select, 
+.toolbar input[type="color"], 
+.toolbar input[type="file"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc; /* Light border for elements */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light gray background */
+    cursor: pointer; /* Pointer cursor for interactive elements */
+    font-size: 14px;
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.toolbar button:hover, 
+.toolbar select:hover, 
+.toolbar input[type="color"]:hover, 
+.toolbar input[type="file"]:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    border-color: #bbb; /* Darker border on hover */
+}
+
+.toolbar button:active, 
+.toolbar select:active, 
+.toolbar input[type="color"]:active, 
+.toolbar input[type="file"]:active {
+    background-color: #d0d0d0; /* Even darker gray when active */
+}
+
+.toolbar button {
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px; /* Ensure consistent button size */
+    height: 36px;
+}
+
+.toolbar select, 
+.toolbar input[type="color"], 
+.toolbar input[type="file"] {
+    height: 36px; /* Match button height for consistent alignment */
+    font-size: 14px;
+}

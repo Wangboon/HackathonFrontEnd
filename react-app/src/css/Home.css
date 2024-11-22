@@ -10,10 +10,12 @@
     text-align: center;
     
 }
-
+body{
+    background-color: #FFFDF9;
+}
 .banner_taital {
     font-size: 3.5rem;
-    color: #FFFDF9;
+    color: #ffffff;
     font-weight: bold;
 }
 
